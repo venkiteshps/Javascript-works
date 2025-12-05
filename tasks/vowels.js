@@ -6,6 +6,6 @@ if (letter=="a" || letter=="e" || letter=="i" || letter=="o" || letter=="u") {
     
 }
 else{
-    console.log("Not a Vowel");
+    console.log("Its a Consonant");
     
 }
