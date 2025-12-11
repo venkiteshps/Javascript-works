@@ -8,7 +8,7 @@ for(let r=1;r<=4;r++){
             
         }
         else{
-            pattern+=0 +"\t"
+            pattern+= 0+"\t"
         }
     }
     console.log(pattern);
