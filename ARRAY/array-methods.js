@@ -7,6 +7,7 @@
 // lastindexOf - Returns the index of the last occurrence of a specified value in an array, or -1 if it is not present.
 // includes -checks wheather an element is present or not and returns true /false
 // slice- Returns a copy of a section of an array. For both start and end, a negative index can be used to indicate an offset from the end of the array
+// splice-Removes elements from an array and, if necessary, inserts new elements in their place, returning the deleted elements.
 
 var foods=["Dosa","chappathy","Idli","Dosa"]
 
@@ -17,7 +18,8 @@ var foods=["Dosa","chappathy","Idli","Dosa"]
 // var pos=foods.indexOf("chappathy")
 // var pos=foods.lastIndexOf("Dosa")
 // var pos=foods.includes("Dosa")
-var pos=foods.slice(0,3)
- console.log(pos);
+// var pos=foods.slice(0,3)
+// foods.splice(1,2,"porotta","alfahm","appam")
+ console.log(foods);
 
  
