@@ -85,7 +85,7 @@ var books = [
 // Malayalam language books
 
 var malayalamBooks=books.filter(bk=>bk.language=="Malayalam").map(bk=>bk.title)
-console.log(malayalamBooks);
+// console.log(malayalamBooks);
 
 
 // Books cost above 350
@@ -115,7 +115,15 @@ for (let b of books){
   }
 }
 
-console.log(languageCount);
+// console.log(languageCount);
+
+// most number
+var mostNumber=Object.entries(languageCount).reduce((l1,l2)=>l1[1]>l2[1]?l1:l2)
+// console.log(mostNumber);
+
+//leat count
+var leastNumber=Object.entries(languageCount).reduce((l1,l2)=>l1[1]<l2[1]?l1:l2)
+console.log(leastNumber);
 
 
 
