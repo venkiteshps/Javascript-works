@@ -44,29 +44,29 @@ var countries = [
 ];
 
 //is there country india
-var isexist=countries.some(c=>c.name=="India")
+var isexist = countries.some(c => c.name == "India")
 // console.log(isexist);
 
 //countries with multiple language
-var twoLang=countries.some(c=>c.language.length>2)
+var twoLang = countries.some(c => c.language.length > 2)
 // console.log(twoLang);
 
 //countries with 3 or more borders
-var gt2border=countries.some(c=>c.borders.length>3)
+var gt2border = countries.some(c => c.borders.length > 3)
 // console.log(gt2border);
 
 
 //country india details
-var india=countries.find(c=>c.name=="India")
+var india = countries.find(c => c.name == "India")
 // console.log(india);
 
 //country with alpha2code IQ
-var iq=countries.find(c=>c.alpha2cod=="IQ")
+var iq = countries.find(c => c.alpha2cod == "IQ")
 // console.log(iq);
 
 
 //country with currency cny
-var cnyCurrency=countries.find(c=>c.currency.toLocaleLowerCase()=="cny")
+var cnyCurrency = countries.find(c => c.currency.toLocaleLowerCase() == "cny")
 // console.log(cnyCurrency);
 
 //country name using foreach
@@ -85,37 +85,97 @@ var cnyCurrency=countries.find(c=>c.currency.toLocaleLowerCase()=="cny")
 
 
 //q1-total population
-var totalPop=countries.reduce((sum,c1)=>sum+c1.population,0)
+// var totalPop = countries.reduce((sum, c1) => sum + c1.population, 0)
 // console.log("Total population:",totalPop);
 
 // 2. Filter and list countries that have the same currency.
-var currencysumm={}
+var currencysumm = {}
 
-for(let c of countries){
-    let money=c.currency
-    let country=c.name
+for (let c of countries) {
+    let money = c.currency
+    let country = c.name
 
     if (money in currencysumm) {
         currencysumm[money].push(country)
-        
+
     }
-    else{
-        currencysumm[money]=[country]
+    else {
+        currencysumm[money] = [country]
     }
 }
 
-console.log(currencysumm);
+// console.log(currencysumm);
 
 
 // 3. Sort all countries in alphabetical order (by country name).
+// countries.sort((c1,c2)=>c1.name.localeCompare(c2.name))
+// console.log(countries);
+
+
 // 4. Count how many countries use each language.
+var langSummary = {}
+for (let c of countries) {
+    for (let lang of c.language) {
+        if (lang in langSummary) {
+            langSummary[lang] += 1
+
+        }
+        else {
+            langSummary[lang] = 1
+        }
+    }
+}
+// console.log(langSummary);
+
+
 // 5. Find the country with the highest population.
+var highPopultion=countries.reduce((c1,c2)=>c1.population>c2.population?c1:c2).population
+var highest=countries.filter(c=>c.population==highPopultion)
+// console.log(highest);
+
 // 6. Categorize (group) countries based on language.
+var languageSummary = {}
+for (let c of countries) {
+    for (let lang of c.language) {
+        if (lang in languageSummary) {
+            languageSummary[lang].push(c.name)
+
+        }
+        else {
+            languageSummary[lang] = [c.name]
+        }
+    }
+}
+// console.log(languageSummary);
+
 // 7. List countries that have more than one language.
+var LangGt2 = countries.filter(c => c.language.length > 1)
+// console.log(LangGt2);
+
 // 8. Find the average population of all countries.
+var totalPop = countries.reduce((sum, c1) => sum + c1.population, 0)
+var average=totalPop/Object.entries(countries).length
+// console.log("Average :",average);
+
 // 9. List all countries that use "EUR" as their currency.
+// countries.filter(c=>c.currency.toLowerCase()=="eur").forEach(c=>console.log(c.name))
+
 // 10. Find the country with the highest number of border-sharing countries.
+var highestborder=countries.reduce((c1,c2)=>c1.borders.length>c2.borders.length?c1:c2)
+// console.log(highestborder);
+
 // 11. Find the country with the lowest population.
+var lowPopultion=countries.reduce((c1,c2)=>c1.population>c2.population?c2:c1).population
+var lowest=countries.filter(c=>c.population==lowPopultion)
+// console.log(lowest);
+
+
 // 12. List all countries that have no border-sharing countries.
+var noBorder=countries.filter(c=>c.borders.length==0)
+// console.log(noBorder);
+
 // 13. Sort the countries by population in ascending order.
+countries.sort((c1,c32)=>c1.population-c2.population)
+console.log(countries);
+
 
